@@ -1,0 +1,70 @@
+body {
+  padding: 50px 0;
+}
+h1,
+h4,
+a {
+  color: #596aca;
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: none;
+}
+
+form {
+  margin: 20px 0;
+  font-size: 20px;
+}
+button {
+  background-color: #dde3ff;
+  border-radius: 5px;
+  border-color: #596aca;
+  color: #596aca;
+  font-size: 18px;
+  padding: 0 5px;
+  transition: all 40ms ease-in-out;
+}
+button:hover {
+  background-color: #596aca;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+  color: #596aca;
+}
+
+.framework {
+  background-color: #dde3ff;
+  display: block;
+  margin: 0 auto;
+  max-width: 650px;
+  min-width: 650px;
+}
+.todaysDegrees {
+  text-align: right;
+}
+.searchButton {
+  background-color: #596aca;
+  border-radius: 5px;
+  color: white;
+}
+.locateButton {
+  background-color: white;
+  color: #596aca;
+  border-radius: 5px;
+}
+.thisWeek {
+  flex-wrap: nowrap;
+}
+.nextDays {
+  padding: 0;
+  margin: 0 3px;
+  max-width: 100px;
+}
+.eachDay {
+  font-size: 20px;
+  padding: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+.nextWeekButton {
+  margin-top: 20px;
+}

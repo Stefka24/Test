@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card framework">
+        <div class="card-body">
+          <h1>
+            <div class="row">
+              <div class="col-6" id="new-city"></div>
+              <div class="col-6 todaysDegrees">
+                <span id="current-temp">9</span>
+                <a href="#" id="temp-celsius"> ℃ </a>
+              </div>
+            </div>
+          </h1>
+          <h4>
+            <div class="row">
+              <div class="col-6" id="current-date">12th May 12:00pm</div>
+              <div class="col-6 todaysDegrees">
+                Feels like <span id="current-feels-like">8</span>℃
+              </div>
+            </div>
+          </h4>
+          <form>
+            <input
+              type="text"
+              placeholder="Enter a city"
+              autofocus
+              id="city-form"
+            />
+            <input
+              type="submit"
+              value="Search"
+              class="searchButton"
+              id="search-button"
+            />
+            <input
+              type="submit"
+              value="Locate"
+              class="locateButton"
+              id="locate-button"
+            />
+          </form>
+          <div class="row thisWeek">
+            <div class="card col-2 nextDays">
+              <div class="card-body eachDay">
+                <h5 class="card-title">Thu</h5>
+                <div class="card-text">9℃</div>
+                <div class="card-text">☁️</div>
+              </div>
+            </div>
+
+            <div class="card col-2 nextDays">
+              <div class="card-body eachDay">
+                <h5 class="card-title">Fri</h5>
+                <div class="card-text">12℃</div>
+                <div class="card-text">🌧</div>
+              </div>
+            </div>
+
+            <div class="card col-2 nextDays">
+              <div class="card-body eachDay">
+                <h5 class="card-title">Sat</h5>
+                <div class="card-text">13℃</div>
+                <div class="card-text">🌧</div>
+              </div>
+            </div>
+
+            <div class="card col-2 nextDays">
+              <div class="card-body eachDay">
+                <h5 class="card-title">Sun</h5>
+                <div class="card-text">13℃</div>
+                <div class="card-text">🌧</div>
+              </div>
+            </div>
+
+            <div class="card col-2 nextDays">
+              <div class="card-body eachDay">
+                <h5 class="card-title">Mon</h5>
+                <div class="card-text">13℃</div>
+                <div class="card-text">🌧</div>
+              </div>
+            </div>
+
+            <div class="col-2 nextWeekButton">
+              <button>Next 5 days ➡️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="src/index.js"></script>
+</html>
