@@ -26,6 +26,10 @@ button:hover {
   background-color: #596aca;
   color: white;
 }
+p {
+  padding-left: 71px;
+  font-family: "Times New Roman", Times, serif;
+}
 a:hover {
   text-decoration: underline;
   color: #596aca;
