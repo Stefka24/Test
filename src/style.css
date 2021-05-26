@@ -27,14 +27,16 @@ button:hover {
   color: white;
 }
 p {
-  padding-left: 71px;
   font-family: "Times New Roman", Times, serif;
 }
 a:hover {
   text-decoration: underline;
   color: #596aca;
 }
-
+.container {
+  max-width: 650px;
+  min-width: 650px;
+}
 .framework {
   background-color: #dde3ff;
   display: block;
