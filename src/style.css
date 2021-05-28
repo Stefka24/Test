@@ -1,5 +1,4 @@
 body {
-  padding: 50px 0;
   background-color: seashell;
 }
 h1,
@@ -37,14 +36,12 @@ a:hover {
 .container {
   max-width: 650px;
   min-width: 650px;
-  box-sizing: border-box;
 }
+
 .framework {
   background-color: #dde3ff;
-  display: block;
-  margin: 0 auto;
-  max-width: 650px;
-  min-width: 650px;
+  margin: 50px 0 auto;
+  max-width: 600px;
 }
 .todaysDegrees {
   text-align: right;
@@ -65,7 +62,7 @@ a:hover {
 .nextDays {
   padding: 0;
   margin: 0 3px;
-  max-width: 100px;
+  max-width: 90px;
 }
 .eachDay {
   font-size: 20px;
@@ -74,5 +71,5 @@ a:hover {
   text-align: center;
 }
 .nextWeekButton {
-  margin-top: 20px;
+  margin: 20px 5px;
 }
