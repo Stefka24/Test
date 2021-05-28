@@ -1,5 +1,6 @@
 body {
   padding: 50px 0;
+  background-color: seashell;
 }
 h1,
 h4,
@@ -36,6 +37,7 @@ a:hover {
 .container {
   max-width: 650px;
   min-width: 650px;
+  box-sizing: border-box;
 }
 .framework {
   background-color: #dde3ff;
