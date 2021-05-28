@@ -1,11 +1,11 @@
 body {
+  font-family: "Times New Roman", Times, serif;
   background-color: seashell;
 }
 h1,
 h4,
 a {
   color: #596aca;
-  font-family: "Times New Roman", Times, serif;
   text-decoration: none;
 }
 
@@ -26,9 +26,7 @@ button:hover {
   background-color: #596aca;
   color: white;
 }
-p {
-  font-family: "Times New Roman", Times, serif;
-}
+
 a:hover {
   text-decoration: underline;
   color: #596aca;
@@ -46,15 +44,17 @@ a:hover {
 .todaysDegrees {
   text-align: right;
 }
-.searchButton {
+.searchButton,
+.locateButton {
   background-color: #596aca;
   border-radius: 5px;
   color: white;
 }
-.locateButton {
+.locateButton:hover,
+.searchButton:hover {
   background-color: white;
-  color: #596aca;
   border-radius: 5px;
+  color: #596aca;
 }
 .thisWeek {
   flex-wrap: nowrap;
@@ -65,6 +65,8 @@ a:hover {
   max-width: 90px;
 }
 .eachDay {
+  border-radius: 10px;
+  border-color: seashell;
   font-size: 20px;
   padding: 0 auto;
   max-width: 100%;
