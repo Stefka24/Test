@@ -1,5 +1,5 @@
-function getCurrentDate() {
-  let now = new Date();
+function getCurrentDate(timestamp) {
+  let now = new Date(timestamp);
   let date = now.getDate();
   if (date < 10) {
     date = `0${date}`;
@@ -27,7 +27,7 @@ function getCurrentDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let sentence = `${date} ${month}  ${hour}:${minutes}`;
+  let sentence = `${date} ${month} ${hour}:${minutes}`;
   return sentence;
 }
 function search(city) {
@@ -51,6 +51,9 @@ function showDegrees(response) {
   document.querySelector("#current-feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#current-date").innerHTML = getCurrentDate(
+    response.data.dt * 1000
+  );
 }
 function searchLocation(event) {
   event.preventDefault();
@@ -71,13 +74,10 @@ function defineLocation(response) {
   showDegrees(response);
 }
 
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = getCurrentDate();
+document.querySelector("#search-button").addEventListener("click", searchCity);
 
-let searchingButton = document.querySelector("#search-button");
-searchingButton.addEventListener("click", searchCity);
-
-let locatingButton = document.querySelector("#locate-button");
-locatingButton.addEventListener("click", searchLocation);
+document
+  .querySelector("#locate-button")
+  .addEventListener("click", searchLocation);
 
 search("London");
