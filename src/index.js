@@ -51,6 +51,12 @@ function showDegrees(response) {
   document.querySelector("#current-feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document
+    .querySelector("#weather-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   document.querySelector("#current-date").innerHTML = getCurrentDate(
     response.data.dt * 1000
   );
