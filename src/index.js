@@ -45,12 +45,11 @@ function searchCity(event) {
 }
 function showDegrees(response) {
   document.querySelector("#new-city").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#current-feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  celsiusTemp = response.data.main.temp;
+  feelsLikeTemp = response.data.main.feels_like;
+  document.querySelector("#current-temp").innerHTML = Math.round(celsiusTemp);
+  document.querySelector("#current-feels-like").innerHTML =
+    Math.round(feelsLikeTemp);
   document
     .querySelector("#weather-icon")
     .setAttribute(
@@ -79,11 +78,38 @@ function defineLocation(response) {
   document.querySelector("#new-city").innerHTML = name;
   showDegrees(response);
 }
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  linkCelsius.classList.remove("tempCelsius");
+  linkFahrenheit.classList.add("tempCelsius");
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    (celsiusTemp * 9) / 5 + 32
+  );
+  document.querySelector("#current-feels-like").innerHTML = Math.round(
+    (feelsLikeTemp * 9) / 5 + 32
+  );
+}
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  linkCelsius.classList.add("tempCelsius");
+  linkFahrenheit.classList.remove("tempCelsius");
+  document.querySelector("#current-temp").innerHTML = Math.round(celsiusTemp);
+  document.querySelector("#current-feels-like").innerHTML =
+    Math.round(feelsLikeTemp);
+}
 
 document.querySelector("#search-button").addEventListener("click", searchCity);
 
 document
   .querySelector("#locate-button")
   .addEventListener("click", searchLocation);
+
+let celsiusTemp = null;
+let feelsLikeTemp = null;
+
+let linkCelsius = document.querySelector("#temp-celsius");
+linkCelsius.addEventListener("click", displayCelsiusTemp);
+let linkFahrenheit = document.querySelector("#temp-fahrenheit");
+linkFahrenheit.addEventListener("click", displayFahrenheitTemp);
 
 search("London");
