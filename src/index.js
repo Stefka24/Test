@@ -43,6 +43,34 @@ function searchCity(event) {
     document.querySelector("#city-form").value);
   search(city);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#weekly-forecast");
+  let forecastHTML = `<div class="row thisWeek">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="card col-2 nextDays">
+                <div class="card-body eachDay">
+                  <h5 class="card-title">${day}</h5>
+                  <div class="card-text">9℃</div>
+                  <div class="card-text">
+                    <img class="forecastIcons" src="http://openweathermap.org/img/wn/04d@2x.png" />
+                  </div>
+                </div>
+              </div>
+            `;
+  });
+
+  forecastHTML =
+    forecastHTML +
+    `<div>
+              <button>Next 5 days ➡️</button>
+            </div>` +
+    `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function showDegrees(response) {
   document.querySelector("#new-city").innerHTML = response.data.name;
   celsiusTemp = response.data.main.temp;
@@ -59,6 +87,7 @@ function showDegrees(response) {
   document.querySelector("#current-date").innerHTML = getCurrentDate(
     response.data.dt * 1000
   );
+  displayForecast();
 }
 function searchLocation(event) {
   event.preventDefault();
@@ -98,12 +127,6 @@ function displayCelsiusTemp(event) {
     Math.round(feelsLikeTemp);
 }
 
-document.querySelector("#search-button").addEventListener("click", searchCity);
-
-document
-  .querySelector("#locate-button")
-  .addEventListener("click", searchLocation);
-
 let celsiusTemp = null;
 let feelsLikeTemp = null;
 
@@ -111,5 +134,11 @@ let linkCelsius = document.querySelector("#temp-celsius");
 linkCelsius.addEventListener("click", displayCelsiusTemp);
 let linkFahrenheit = document.querySelector("#temp-fahrenheit");
 linkFahrenheit.addEventListener("click", displayFahrenheitTemp);
+
+document.querySelector("#search-button").addEventListener("click", searchCity);
+
+document
+  .querySelector("#locate-button")
+  .addEventListener("click", searchLocation);
 
 search("London");

@@ -19,14 +19,11 @@ button {
   border-color: #596aca;
   color: #596aca;
   font-size: 18px;
-  padding: 0 5px;
+  margin: 30px 5px 0 5px;
+  max-width: 75px;
   transition: all 40ms ease-in-out;
 }
-img {
-  height: 60px;
-  width: 60px;
-  margin: -10px;
-}
+
 button:hover {
   background-color: #596aca;
   color: white;
@@ -49,6 +46,11 @@ button:hover {
 }
 .todaysDegrees {
   text-align: right;
+}
+.weatherIcon {
+  height: 60px;
+  width: 60px;
+  margin: -10px;
 }
 
 .searchButton,
@@ -79,6 +81,8 @@ button:hover {
   max-width: 100%;
   text-align: center;
 }
-.nextWeekButton {
-  margin: 20px 5px;
+.forecastIcons {
+  height: 50px;
+  width: 50px;
+  margin: -30px;
 }
