@@ -43,24 +43,36 @@ function searchCity(event) {
     document.querySelector("#city-form").value);
   search(city);
 }
-function displayForecast() {
+function formatDays(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weekly-forecast");
   let forecastHTML = `<div class="row thisWeek">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
               <div class="card col-2 nextDays">
                 <div class="card-body eachDay">
-                  <h5 class="card-title">${day}</h5>
-                  <div class="card-text">9℃</div>
+                  <h5 class="card-title">${formatDays(forecastDay.dt)}</h5>
+                  <div class="card-text">${Math.round(
+                    forecastDay.temp.day
+                  )}℃</div>
                   <div class="card-text">
-                    <img class="forecastIcons" src="http://openweathermap.org/img/wn/04d@2x.png" />
+                    <img class="forecastIcons" src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png" />
                   </div>
                 </div>
               </div>
             `;
+    }
   });
 
   forecastHTML =
@@ -70,6 +82,11 @@ function displayForecast() {
             </div>` +
     `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "2bbfe2c83b5eba58ece5b7c5c691290a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 function showDegrees(response) {
   document.querySelector("#new-city").innerHTML = response.data.name;
@@ -87,7 +104,8 @@ function showDegrees(response) {
   document.querySelector("#current-date").innerHTML = getCurrentDate(
     response.data.dt * 1000
   );
-  displayForecast();
+
+  getForecast(response.data.coord);
 }
 function searchLocation(event) {
   event.preventDefault();
