@@ -125,33 +125,6 @@ function defineLocation(response) {
   document.querySelector("#new-city").innerHTML = name;
   showDegrees(response);
 }
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  linkCelsius.classList.remove("tempCelsius");
-  linkFahrenheit.classList.add("tempCelsius");
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    (celsiusTemp * 9) / 5 + 32
-  );
-  document.querySelector("#current-feels-like").innerHTML = Math.round(
-    (feelsLikeTemp * 9) / 5 + 32
-  );
-}
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  linkCelsius.classList.add("tempCelsius");
-  linkFahrenheit.classList.remove("tempCelsius");
-  document.querySelector("#current-temp").innerHTML = Math.round(celsiusTemp);
-  document.querySelector("#current-feels-like").innerHTML =
-    Math.round(feelsLikeTemp);
-}
-
-let celsiusTemp = null;
-let feelsLikeTemp = null;
-
-let linkCelsius = document.querySelector("#temp-celsius");
-linkCelsius.addEventListener("click", displayCelsiusTemp);
-let linkFahrenheit = document.querySelector("#temp-fahrenheit");
-linkFahrenheit.addEventListener("click", displayFahrenheitTemp);
 
 document.querySelector("#search-button").addEventListener("click", searchCity);
 
