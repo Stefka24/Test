@@ -54,7 +54,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#weekly-forecast");
   let forecastHTML = `<div class="row thisWeek">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -75,12 +75,6 @@ function displayForecast(response) {
     }
   });
 
-  forecastHTML =
-    forecastHTML +
-    `<div>
-              <button>Next 5 days ➡️</button>
-            </div>` +
-    `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
